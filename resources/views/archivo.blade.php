@@ -8,5 +8,12 @@
 </head>
 <body>
     <h1>My name is Charlie Fuentes</h1>
+
+    @php
+        $suma = 5+2
+    @endphp
+
+    <h5>Numero de Balas: {{ $suma }}</h5>
+
 </body>
 </html>
