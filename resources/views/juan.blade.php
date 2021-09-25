@@ -32,6 +32,9 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('juan') }}">Juan</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.youtube.com/watch?v=nKITkHxTxD4" target="_blank">Salvación</a>
+      </li>
     </ul>
 </nav>
     <!-- Fin Nav -->
