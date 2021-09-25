@@ -13,8 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
-Route::get('/Nombre', 'HomeController@index');
+/*Route::get('/nombre', function () {
+    return view('diario');
+});*/
+
+Route::get('/', 'HomeController@welcome')->name('welcome');
+
+Route::get('/diario', 'HomeController@diario')->name('diario');
+
+Route::get('/juan', 'HomeController@juan')->name('juan');
+
+Route::resource('/blog', 'Postcontroller');

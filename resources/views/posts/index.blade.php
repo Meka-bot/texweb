@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <!--Iconos-->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous"/>
-
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous"/>    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,49 +32,72 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('juan') }}">Juan</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.youtube.com/watch?v=nKITkHxTxD4" target="_blank">Salvación</a>
-      </li>
     </ul>
 </nav>
     <!-- Fin Nav -->
 
-    <section>
-      <div style="background-image: url('https://images.alphacoders.com/976/thumb-1920-976234.png'); height: 500px; background-repeat:no-repeat; background-position: center top; background-attachment: fixed;"><a></a></div>
-    </sections>
+    <br>
+    <br>
 
-<br>
-<br>
-<br>
-    <div>
-      <h1 style="text-align: center;">Howdy</h1>
+    @if (Session::has('exito'))
+    <div style="background: lightgreen; color: white;">
+        <p>Todo bien</p>
     </div>
+    @endif
 
-<br>
-<br>
+    @if (Session::has('good'))
+    <div style="background: lightblue; color: white;">
+        <p>Todo se borro bien</p>
+    </div>
+    @endif
 
+    <!--Form-->
+    <div styles="">
+    <form method="POST" action="{{ route('blog.store') }}">
+    {{ csrf_field() }}
+    <!---->
+    <div class="row">
+        <div class="col">
+        <label style="color:rgb(255, 80, 80); font-size:200%; font-weight: 500">Titulo:</label>
+        <br>
+        <input type="text" class="form-control" placeholder="Un mundo salvaje" required="" name="title">
+        </div>
+    </div>
+    <br>
+    <!---->
+    <div class="row">
+        <div class="col">
+        <label style="color:rgb(255, 80, 80); font-size:200%; font-weight: 500">Cuerpo:</label>
+        <br>
+        <textarea class="form-control" placeholder="Hace una vez..." required="" name="body" rows="10"></textarea>
+        </div>
+    </div>
+    <br>
+    <!---->
+    <div class="row">
+        <div class="col">
+        <label style="color:rgb(255, 80, 80); font-size:200%; font-weight: 500">Autor:</label>
+        <br>
+        <input type="text" class="form-control" placeholder="Arthur Morgan" name="author">
+        </div>
+        <div class="col">
+        <label style="color:rgb(255, 80, 80); font-size:200%; font-weight: 500">Fecha:</label>
+        <br>
+        <input type="date" class="form-control" placeholder="" name="date">
+        </div>
+    </div>
+    <br>
+    <!---->
+    <div style="">
+    <input type="submit" value="Agregar Blog">
+    </div>
+    </form>
+    </div>
+    <!--Fin Form-->
 
-
-@foreach ($posts as $post)
-<div style="padding-top: 5%; padding-right: 20%; padding-left: 20%; padding-bottom: 5%;" class="card row">
-  <div class="card-header">
-    <h6>{{ $post->author }}<h6>
-  </div>
-  <div class="card-body">
-    <h2 class="card-title">{{ $post->title }}</h5>
-    <p class="card-text">{{ $post->body }}</p>
-  </div>
-  <div class="card-footer text-muted col">
-  {{ $post->date }} 
-  <hr>
-  </div>
-</div>
-@endforeach
-
-
-
-<br>
-<br>
+    <br>
+    <br>
+    <br>
 
 <footer style=" background-color:rgb(217, 217, 217);">
   <div class="text-center p-4">
